@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Seongchan Lee | Graduate Researcher</title>
+  <meta name="description" content="Seongchan Lee — graduate researcher in statistics, statistical inference, and machine learning at KAIST." />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
     /* ─── Reset & Tokens ─────────────────────────────────── */
@@ -43,7 +44,7 @@
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
       pointer-events: none;
       z-index: 9999;
-      opacity: 0.35;
+      opacity: 0.18;
     }
 
     /* ─── Navigation ─────────────────────────────────────── */
@@ -80,7 +81,6 @@
       text-transform: uppercase;
       text-decoration: none;
       color: var(--ink-soft);
-      transition: color 0.2s;
       padding-bottom: 2px;
       border-bottom: 1px solid transparent;
       transition: color 0.2s, border-color 0.2s;
@@ -340,6 +340,15 @@
       border-bottom: 1px solid var(--rule);
     }
 
+    /* A slightly narrower measure makes long paper titles easier to scan. */
+    #publications .section-wrap {
+      max-width: 1120px;
+    }
+
+    #publications .section-header {
+      margin-bottom: 1.35rem;
+    }
+
     .pub-list {
       display: flex;
       flex-direction: column;
@@ -347,103 +356,183 @@
 
     .pub-item {
       display: grid;
-      grid-template-columns: 72px 1fr auto;
-      gap: 2rem;
+      grid-template-columns: 74px minmax(0, 1fr) 116px;
+      gap: 1.55rem;
       align-items: start;
-      padding: 2rem 1rem;
+      padding: 1.6rem 0.9rem;
+      margin: 0 -0.9rem;
       border-bottom: 1px solid var(--rule);
       border-radius: var(--radius);
-      transition: background 0.2s, transform 0.2s;
-      margin: 0 -1rem;
+      transition: background 0.18s ease;
+    }
+
+    .pub-item:first-child {
+      border-top: 1px solid var(--rule);
     }
 
     .pub-item:hover {
-      background: var(--card);
-      transform: translateX(4px);
-      box-shadow: var(--shadow);
+      background: rgba(255, 255, 255, 0.52);
     }
 
     .pub-year {
       font-family: 'DM Mono', monospace;
-      font-size: 0.72rem;
+      font-size: 0.68rem;
+      font-weight: 500;
       color: var(--accent);
       letter-spacing: 0.08em;
-      padding-top: 0.25rem;
+      padding-top: 0.18rem;
+    }
+
+    .pub-main {
+      min-width: 0;
     }
 
     .pub-title {
       font-family: 'DM Serif Display', serif;
-      font-size: 1.08rem;
-      margin-bottom: 0.45rem;
-      line-height: 1.35;
+      font-size: clamp(1.08rem, 1.45vw, 1.18rem);
+      font-weight: 400;
+      line-height: 1.42;
+      letter-spacing: -0.006em;
       color: var(--ink);
+      margin-bottom: 0.42rem;
     }
 
     .pub-authors {
-      font-size: 0.82rem;
-      color: var(--ink-soft);
-      margin-bottom: 0.35rem;
+      font-size: 0.86rem;
+      font-weight: 400;
+      line-height: 1.65;
+      color: #6B645C;
     }
 
-    .pub-authors strong { color: var(--ink); font-weight: 500; }
+    .pub-authors strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .pub-meta {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.7rem 1rem;
+      margin-top: 0.62rem;
+    }
 
     .pub-venue {
-  display: inline-block;
-  margin-top: 4px;
-  color: inherit;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.pub-venue:hover {
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-    .pub-venue {
+      display: inline-flex;
+      align-items: center;
       font-family: 'DM Mono', monospace;
-      font-size: 0.68rem;
-      color: var(--accent2);
-      letter-spacing: 0.05em;
+      font-size: 0.64rem;
+      font-weight: 500;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: #216E52;
+      text-decoration: none;
+      padding: 0.18rem 0.48rem;
+      border-radius: 3px;
+      background: #EAF7F1;
+      border: 1px solid #A6D7C0;
+      transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+    }
+
+    .pub-venue:hover {
+      color: #16513D;
+      background: #DDF1E7;
+      border-color: #84C5A7;
     }
 
     .pub-links {
       display: flex;
-      gap: 0.9rem;
-      margin-top: 0.7rem;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin: 0;
     }
 
     .pub-link {
       font-family: 'DM Mono', monospace;
-      font-size: 0.62rem;
-      letter-spacing: 0.1em;
+      font-size: 0.61rem;
+      font-weight: 500;
+      letter-spacing: 0.09em;
       text-transform: uppercase;
       text-decoration: none;
       color: var(--accent2);
-      border-bottom: 1px solid currentColor;
+      border-bottom: 1px solid rgba(43, 108, 176, 0.55);
       padding-bottom: 1px;
-      transition: color 0.2s;
+      transition: color 0.18s ease, border-color 0.18s ease;
     }
 
-    .pub-link:hover { color: var(--accent); }
+    .pub-link:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
 
     .pub-badge {
+      justify-self: end;
+      align-self: start;
       font-family: 'DM Mono', monospace;
-      font-size: 0.58rem;
-      letter-spacing: 0.1em;
+      font-size: 0.56rem;
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: 0.085em;
       text-transform: uppercase;
-      padding: 0.3rem 0.75rem;
-      border-radius: var(--radius);
+      padding: 0.48rem 0.65rem;
+      border-radius: 4px;
       background: var(--tag-bg);
       color: var(--ink-soft);
       border: 1px solid var(--rule);
       white-space: nowrap;
-      align-self: start;
-      margin-top: 0.25rem;
+      margin-top: 0.08rem;
     }
 
-    .pub-badge.oral { background: #FEF3C7; border-color: #F59E0B; color: #92400E; }
-    .pub-badge.review { background: #EFF6FF; border-color: #93C5FD; color: #1D4ED8; }
+    /* Status colors: each publication state gets a distinct visual cue. */
+    .pub-badge.review {
+      background: #FFF7E8;
+      border-color: #E8C984;
+      color: #8A5A12;
+    }
+
+    .pub-badge.conference {
+      background: #EAF7F1;
+      border-color: #A6D7C0;
+      color: #216E52;
+    }
+
+    .pub-badge.oral {
+      background: #F4EEFF;
+      border-color: #CDB7F4;
+      color: #6941A5;
+    }
+
+    .equal-contrib-note {
+      margin-top: 1.15rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      color: var(--ink-muted);
+      letter-spacing: 0.05em;
+    }
+
+    @media (max-width: 768px) {
+      .pub-item {
+        grid-template-columns: 48px minmax(0, 1fr);
+        gap: 1rem;
+        padding: 1.45rem 0.25rem;
+        margin: 0;
+      }
+
+      .pub-badge {
+        grid-column: 2;
+        justify-self: start;
+        margin-top: 0.15rem;
+      }
+
+      .pub-title {
+        font-size: 1.05rem;
+      }
+
+      .pub-authors {
+        font-size: 0.82rem;
+      }
+    }
 
     /* ─── Academic Activities ────────────────────────────── */
     #academic {
@@ -606,6 +695,13 @@
 
     .social-links a:hover { color: var(--accent); }
 
+
+    a:focus-visible {
+      outline: 2px solid var(--accent2);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
     /* ─── Scroll Reveal ──────────────────────────────────── */
     .reveal {
       opacity: 0;
@@ -641,9 +737,17 @@
       .nav-links { display: none; }
       .section-wrap { padding: 4rem 1.5rem; }
       .pub-item { grid-template-columns: 54px 1fr; }
-      .pub-badge { display: none; }
       footer { padding: 2rem 1.5rem; }
       .activity-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
     }
   </style>
 </head>
@@ -656,7 +760,7 @@
     <li><a href="#about">About</a></li>
     <li><a href="#publications">Research</a></li>
     <li><a href="#academic">Activities</a></li>
-    <li><a href="mailto:statchan1106 (AT) kaist (DOT) ac (DOT) kr">Contact</a></li>
+    <li><a href="mailto:statchan1106@kaist.ac.kr">Contact</a></li>
   </ul>
 </nav>
 
@@ -692,7 +796,7 @@
       <div class="about-text reveal">
         <p>
           I am a graduate student in the Department of Mathematical Sciences at KAIST,
-          working with my advisor, <a href="https://ilmunk.github.io/index.html" target="_blank">Ilmun Kim</a>.
+          working with my advisor, <a href="https://ilmunk.github.io/index.html" target="_blank" rel="noopener noreferrer">Ilmun Kim</a>.
           I transferred to KAIST from the Department of Statistics and Data Science at Yonsei University.
         </p>
         <p>
@@ -740,38 +844,40 @@
     </div>
 
     <!--
-    ╔═══════════════════════════════════════════════════════╗
-    ║  논문 추가: 아래 .pub-item 블록을 복사해 위에 붙여넣기 ║
-    ║  배지: Poster · Oral (class="oral") · Under Review    ║
-    ║        (class="review") · Journal · Preprint          ║
-    ╚═══════════════════════════════════════════════════════╝
+      Add a paper by copying one .pub-item block.
+      Status classes:
+        review      = Under Review
+        conference  = Conference
+        oral        = Oral
     -->
 
     <div class="pub-list">
 
-    <div class="pub-item reveal">
-      <div class="pub-year">2026</div>
-      <div>
-        <div class="pub-title">FUSE: Feature-Wise Unified Specialization with Cross-Column Exchange for Mixed-Type Tabular Flow Matching</div>
-        <div class="pub-authors">
-          Suman Cha, <strong>Seongchan Lee</strong>, Dohyun Ko, Hyunjoong Kim
+      <div class="pub-item reveal">
+        <div class="pub-year">2026</div>
+        <div class="pub-main">
+          <div class="pub-title">FUSE: Feature-Wise Unified Specialization with Cross-Column Exchange for Mixed-Type Tabular Flow Matching</div>
+          <div class="pub-authors">Suman Cha, <strong>Seongchan Lee</strong>, Dohyun Ko, Hyunjoong Kim</div>
+          <div class="pub-meta">
+            <div class="pub-links">
+              <a href="https://arxiv.org/pdf/2608.07294" class="pub-link" target="_blank" rel="noopener noreferrer">Paper</a>
+              <a href="https://github.com/suman-cha/FUSE" class="pub-link" target="_blank" rel="noopener noreferrer">Code</a>
+            </div>
+          </div>
         </div>
-        <div class="pub-links">
-            <a href="https://arxiv.org/pdf/2608.07294" class="pub-link" target="_blank">Paper</a>
-            <a href="https://github.com/suman-cha/FUSE" class="pub-link" target="_blank">Code</a>
-        </div>
+        <span class="pub-badge review">Under Review</span>
       </div>
-      <span class="pub-badge review">Under Review</span>
-    </div>
 
       <div class="pub-item reveal">
         <div class="pub-year">2026</div>
-        <div>
+        <div class="pub-main">
           <div class="pub-title">A Sharper Hoeffding Bound for Weighted Sums of Exchangeable Random Variables</div>
           <div class="pub-authors"><strong>Seongchan Lee</strong>, Ilmun Kim</div>
-          <div class="pub-links">
-            <a href="https://arxiv.org/pdf/2608.04900" class="pub-link" target="_blank">Paper</a>
-            <a href="https://statchan1106.github.io/exchangeable-hoeffding-lean/index.html" class="pub-link" target="_blank">Lean Project</a>
+          <div class="pub-meta">
+            <div class="pub-links">
+              <a href="https://arxiv.org/pdf/2608.04900" class="pub-link" target="_blank" rel="noopener noreferrer">Paper</a>
+              <a href="https://statchan1106.github.io/exchangeable-hoeffding-lean/index.html" class="pub-link" target="_blank" rel="noopener noreferrer">Lean Project</a>
+            </div>
           </div>
         </div>
         <span class="pub-badge review">Under Review</span>
@@ -779,68 +885,53 @@
 
       <div class="pub-item reveal">
         <div class="pub-year">2026</div>
-        <div>
+        <div class="pub-main">
           <div class="pub-title">More Permutations Do Not Always Increase Power: Non-monotonicity in Monte Carlo Permutation Tests</div>
           <div class="pub-authors">Suman Cha<sup>†</sup>, <strong>Seongchan Lee<sup>†</sup></strong>, Antonin Schrab, Ilmun Kim</div>
-          <div class="pub-links">
-            <a href="https://arxiv.org/pdf/2605.03886" class="pub-link" target="_blank">Paper</a>
-            <a href="https://github.com/suman-cha/mc-perm-power" class="pub-link" target="_blank">Code</a>
+          <div class="pub-meta">
+            <div class="pub-links">
+              <a href="https://arxiv.org/pdf/2605.03886" class="pub-link" target="_blank" rel="noopener noreferrer">Paper</a>
+              <a href="https://github.com/suman-cha/mc-perm-power" class="pub-link" target="_blank" rel="noopener noreferrer">Code</a>
+            </div>
           </div>
         </div>
         <span class="pub-badge review">Under Review</span>
       </div>
 
-    <div class="pub-item reveal">
-      <div class="pub-year">2026</div>
-      <div>
-        <div class="pub-title">
-          Multi-LLM Adaptive Conformal Inference for Reliable LLM Responses
+      <div class="pub-item reveal">
+        <div class="pub-year">2026</div>
+        <div class="pub-main">
+          <div class="pub-title">Multi-LLM Adaptive Conformal Inference for Reliable LLM Responses</div>
+          <div class="pub-authors">Kangjun Noh, <strong>Seongchan Lee</strong>, Ilmun Kim, Kyungwoo Song</div>
+          <div class="pub-meta">
+            <a href="https://iclr.cc/Conferences/2026" class="pub-venue" target="_blank" rel="noopener noreferrer">ICLR 2026</a>
+            <div class="pub-links">
+              <a href="https://arxiv.org/pdf/2602.01285" class="pub-link" target="_blank" rel="noopener noreferrer">Paper</a>
+              <a href="https://github.com/MLAI-Yonsei/MACI" class="pub-link" target="_blank" rel="noopener noreferrer">Code</a>
+            </div>
+          </div>
         </div>
-    
-        <div class="pub-authors">
-          Kangjun Noh, <strong>Seongchan Lee</strong>, Ilmun Kim, Kyungwoo Song
-        </div>
-    
-        <a href="https://iclr.cc/Conferences/2026"
-           class="pub-venue"
-           target="_blank">
-          ICLR 2026
-        </a>
-    
-        <div class="pub-links">
-          <a href="https://arxiv.org/pdf/2602.01285"
-             class="pub-link"
-             target="_blank">
-            Paper
-          </a>
-          <a href="https://github.com/MLAI-Yonsei/MACI"
-             class="pub-link"
-             target="_blank">
-            Code
-          </a>
-        </div>
+        <span class="pub-badge conference">Conference</span>
       </div>
-    
-      <span class="pub-badge">Conference</span>
-    </div>
 
       <div class="pub-item reveal">
         <div class="pub-year">2024</div>
-        <div>
+        <div class="pub-main">
           <div class="pub-title">General Frameworks for Conditional Two-Sample Testing</div>
           <div class="pub-authors"><strong>Seongchan Lee<sup>†</sup></strong>, Suman Cha<sup>†</sup>, Ilmun Kim</div>
-          <div class="pub-links">
-            <a href="https://arxiv.org/pdf/2410.16636" class="pub-link" target="_blank">Paper</a>
-            <a href="https://github.com/suman-cha/Cond2ST" class="pub-link" target="_blank">Code</a>
+          <div class="pub-meta">
+            <div class="pub-links">
+              <a href="https://arxiv.org/pdf/2410.16636" class="pub-link" target="_blank" rel="noopener noreferrer">Paper</a>
+              <a href="https://github.com/suman-cha/Cond2ST" class="pub-link" target="_blank" rel="noopener noreferrer">Code</a>
+            </div>
           </div>
         </div>
         <span class="pub-badge review">Under Review</span>
       </div>
 
     </div>
-    <p style="margin-top:1.5rem; font-family:'DM Mono',monospace; font-size:0.65rem; color:var(--ink-muted); letter-spacing:0.05em;">
-      <sup>†</sup> Equal contribution
-    </p>
+
+    <p class="equal-contrib-note"><sup>†</sup> Equal contribution</p>
   </div>
 </section>
 
@@ -929,9 +1020,8 @@
   <div class="footer-inner">
     <p>© 2026 Seongchan Lee · Built with HTML &amp; CSS</p>
     <div class="social-links">
-      <a href="https://github.com/statchan1106" target="_blank">GitHub</a>
-      <a href="https://scholar.google.com/citations?user=0SjzmrQAAAAJ"target="_blank"rel="noopener noreferrer">Google Scholar</a>
-      <a href="#" target="_blank">LinkedIn</a>
+      <a href="https://github.com/statchan1106" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://scholar.google.com/citations?user=0SjzmrQAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
       <a href="mailto:statchan1106@kaist.ac.kr">Email</a>
     </div>
   </div>
