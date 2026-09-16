@@ -340,9 +340,9 @@
       border-bottom: 1px solid var(--rule);
     }
 
-    /* A slightly narrower measure makes long paper titles easier to scan. */
+    /* Keep the publication list aligned with the rest of the page. */
     #publications .section-wrap {
-      max-width: 1120px;
+      max-width: 1200px;
     }
 
     #publications .section-header {
@@ -356,11 +356,11 @@
 
     .pub-item {
       display: grid;
-      grid-template-columns: 74px minmax(0, 1fr) 116px;
-      gap: 1.55rem;
+      grid-template-columns: 70px minmax(0, 1fr) auto;
+      gap: 1.5rem;
       align-items: start;
-      padding: 1.6rem 0.9rem;
-      margin: 0 -0.9rem;
+      padding: 1.7rem 0.75rem;
+      margin: 0 -0.75rem;
       border-bottom: 1px solid var(--rule);
       border-radius: var(--radius);
       transition: background 0.18s ease;
@@ -371,7 +371,7 @@
     }
 
     .pub-item:hover {
-      background: rgba(255, 255, 255, 0.52);
+      background: rgba(255, 255, 255, 0.38);
     }
 
     .pub-year {
@@ -389,18 +389,18 @@
 
     .pub-title {
       font-family: 'DM Serif Display', serif;
-      font-size: clamp(1.08rem, 1.45vw, 1.18rem);
+      font-size: clamp(1.1rem, 1.45vw, 1.22rem);
       font-weight: 400;
-      line-height: 1.42;
+      line-height: 1.4;
       letter-spacing: -0.006em;
       color: var(--ink);
-      margin-bottom: 0.42rem;
+      margin-bottom: 0.38rem;
     }
 
     .pub-authors {
       font-size: 0.86rem;
       font-weight: 400;
-      line-height: 1.65;
+      line-height: 1.6;
       color: #6B645C;
     }
 
@@ -409,43 +409,52 @@
       font-weight: 500;
     }
 
+    /* Venue is metadata, not a second badge. Keep it quiet. */
     .pub-meta {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 0.7rem 1rem;
-      margin-top: 0.62rem;
+      display: block;
+      margin-top: 0.3rem;
+      line-height: 1.5;
     }
 
     .pub-venue {
-      display: inline-flex;
-      align-items: center;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.64rem;
-      font-weight: 500;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      color: #216E52;
+      display: inline;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 300;
+      font-style: italic;
+      letter-spacing: 0;
+      text-transform: none;
+      color: var(--ink-soft);
       text-decoration: none;
-      padding: 0.18rem 0.48rem;
-      border-radius: 3px;
-      background: #EAF7F1;
-      border: 1px solid #A6D7C0;
-      transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      transition: color 0.18s ease;
     }
 
     .pub-venue:hover {
-      color: #16513D;
-      background: #DDF1E7;
-      border-color: #84C5A7;
+      color: var(--accent2);
+    }
+
+    .venue-abbr {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.69rem;
+      font-weight: 500;
+      font-style: normal;
+      letter-spacing: 0.025em;
+      color: #4F4A44;
     }
 
     .pub-links {
       display: flex;
       align-items: center;
       flex-wrap: wrap;
-      gap: 0.8rem;
-      margin: 0;
+      gap: 0.85rem;
+      margin-top: 0.42rem;
+    }
+
+    .pub-meta + .pub-links {
+      margin-top: 0.3rem;
     }
 
     .pub-link {
@@ -456,7 +465,7 @@
       text-transform: uppercase;
       text-decoration: none;
       color: var(--accent2);
-      border-bottom: 1px solid rgba(43, 108, 176, 0.55);
+      border-bottom: 1px solid rgba(43, 108, 176, 0.5);
       padding-bottom: 1px;
       transition: color 0.18s ease, border-color 0.18s ease;
     }
@@ -470,31 +479,32 @@
       justify-self: end;
       align-self: start;
       font-family: 'DM Mono', monospace;
-      font-size: 0.56rem;
+      font-size: 0.55rem;
       font-weight: 500;
       line-height: 1;
       letter-spacing: 0.085em;
       text-transform: uppercase;
-      padding: 0.48rem 0.65rem;
+      padding: 0.48rem 0.68rem;
       border-radius: 4px;
-      background: var(--tag-bg);
-      color: var(--ink-soft);
-      border: 1px solid var(--rule);
+      background: rgba(255, 255, 255, 0.3);
+      color: #5F5A53;
+      border: 1px solid #D0C9BD;
       white-space: nowrap;
       margin-top: 0.08rem;
     }
 
-    /* Status colors: each publication state gets a distinct visual cue. */
+    /* Review status is the only publication state that gets a strong color. */
     .pub-badge.review {
-      background: #FFF7E8;
-      border-color: #E8C984;
-      color: #8A5A12;
+      background: #FFF8EA;
+      border-color: #E4C77F;
+      color: #855A16;
     }
 
+    .pub-badge.journal,
     .pub-badge.conference {
-      background: #EAF7F1;
-      border-color: #A6D7C0;
-      color: #216E52;
+      background: rgba(255, 255, 255, 0.3);
+      border-color: #D0C9BD;
+      color: #5F5A53;
     }
 
     .pub-badge.oral {
@@ -522,7 +532,7 @@
       .pub-badge {
         grid-column: 2;
         justify-self: start;
-        margin-top: 0.15rem;
+        margin-top: 0.18rem;
       }
 
       .pub-title {
@@ -531,6 +541,10 @@
 
       .pub-authors {
         font-size: 0.82rem;
+      }
+
+      .pub-venue {
+        font-size: 0.76rem;
       }
     }
 
@@ -736,7 +750,6 @@
       nav { padding: 1rem 1.5rem; }
       .nav-links { display: none; }
       .section-wrap { padding: 4rem 1.5rem; }
-      .pub-item { grid-template-columns: 54px 1fr; }
       footer { padding: 2rem 1.5rem; }
       .activity-grid { grid-template-columns: 1fr; }
     }
@@ -847,6 +860,7 @@
       Add a paper by copying one .pub-item block.
       Status classes:
         review      = Under Review
+        journal     = Journal
         conference  = Conference
         oral        = Oral
     -->
@@ -905,7 +919,7 @@
            class="pub-venue"
            target="_blank"
            rel="noopener noreferrer">
-          Electronic Communications in Probability (ECP), 2026
+          Electronic Communications in Probability <span class="venue-abbr">(ECP)</span>
         </a>
       </div>
 
@@ -984,7 +998,7 @@
            class="pub-venue"
            target="_blank"
            rel="noopener noreferrer">
-          International Conference on Learning Representations (ICLR), 2026
+          International Conference on Learning Representations <span class="venue-abbr">(ICLR)</span>
         </a>
       </div>
 
@@ -1048,6 +1062,8 @@
 <p class="equal-contrib-note">
   <sup>†</sup> Equal contribution
 </p>
+  </div>
+</section>
 
 <!-- ═══ ACADEMIC ACTIVITIES ══════════════════════════════ -->
 <section id="academic">
