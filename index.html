@@ -435,14 +435,6 @@
     .pub-venue:hover {
       color: var(--accent2);
     }
-    .pub-status {
-    margin-top: 0.12rem;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.61rem;
-    font-weight: 400;
-    letter-spacing: 0.04em;
-    color: var(--ink-muted);
-    }
 
     .venue-abbr {
       font-family: 'DM Mono', monospace;
@@ -508,8 +500,8 @@
       color: #855A16;
     }
 
-    .pub-badge.journal,
-    .pub-badge.conference {
+    .pub-badge.accepted,
+    .pub-badge.published {
       background: rgba(255, 255, 255, 0.3);
       border-color: #D0C9BD;
       color: #5F5A53;
@@ -868,9 +860,8 @@
       Add a paper by copying one .pub-item block.
       Status classes:
         review      = Under Review
-        journal     = Journal
-        conference  = Conference
-        oral        = Oral
+        accepted    = Accepted
+        published   = Published
     -->
 
 <div class="pub-list">
@@ -893,7 +884,7 @@
            class="pub-link"
            target="_blank"
            rel="noopener noreferrer">
-          arXiv
+          Paper
         </a>
 
         <a href="https://github.com/suman-cha/FUSE"
@@ -936,7 +927,7 @@
            class="pub-link"
            target="_blank"
            rel="noopener noreferrer">
-          arXiv
+          Paper
         </a>
 
         <a href="https://projecteuclid.org/journals/electronic-communications-in-probability/volume-31/issue-none/A-sharper-Hoeffding-bound-for-weighted-sums-of-exchangeable-random/10.1214/26-ECP818.full"
@@ -955,7 +946,7 @@
       </div>
     </div>
 
-    <span class="pub-badge journal">Journal</span>
+    <span class="pub-badge published">Published</span>
   </div>
 
 
@@ -979,7 +970,7 @@
            class="pub-link"
            target="_blank"
            rel="noopener noreferrer">
-          arXiv
+          Paper
         </a>
 
         <a href="https://github.com/suman-cha/mc-perm-power"
@@ -1022,7 +1013,7 @@
            class="pub-link"
            target="_blank"
            rel="noopener noreferrer">
-          arXiv
+          Paper
         </a>
 
         <a href="https://github.com/MLAI-Yonsei/MACI"
@@ -1034,7 +1025,7 @@
       </div>
     </div>
 
-    <span class="pub-badge conference">Conference</span>
+    <span class="pub-badge published">Published</span>
   </div>
 
 
@@ -1059,8 +1050,6 @@
          rel="noopener noreferrer">
         Biometrika
       </a>
-    
-      <div class="pub-status">Accepted for publication</div>
     </div>
 
 
@@ -1069,7 +1058,7 @@
            class="pub-link"
            target="_blank"
            rel="noopener noreferrer">
-          arXiv
+          Paper
         </a>
 
         <a href="https://github.com/suman-cha/Cond2ST"
@@ -1081,7 +1070,7 @@
       </div>
     </div>
 
-    <span class="pub-badge journal">Journal</span>
+    <span class="pub-badge accepted">Accepted</span>
   </div>
 
 </div>
