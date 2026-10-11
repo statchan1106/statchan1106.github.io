@@ -402,15 +402,15 @@
     }
 
     .pub-authors {
-      font-size: 1rem;
+      font-size: 0.9375rem;
       font-weight: 400;
       line-height: 1.6;
       color: var(--ink-soft);
     }
 
     .pub-authors strong {
-      color: var(--ink);
-      font-weight: 600;
+      color: inherit;
+      font-weight: 500;
     }
 
     .contrib-mark {
@@ -420,7 +420,7 @@
       font-weight: 600;
       line-height: 0;
       vertical-align: super;
-      color: var(--ink);
+      color: inherit;
     }
 
     /* Venue is metadata, not a second badge. Keep it quiet. */
@@ -432,13 +432,13 @@
 
     .pub-venue {
       display: inline;
-      font-family: var(--font-body);
-      font-size: 0.9375rem;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1rem;
       font-weight: 400;
-      font-style: normal;
+      font-style: italic;
       letter-spacing: 0;
       text-transform: none;
-      color: var(--ink-soft);
+      color: var(--ink-muted);
       text-decoration: none;
       padding: 0;
       border: 0;
@@ -451,12 +451,9 @@
     }
 
     .venue-abbr {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.8rem;
-      font-weight: 500;
-      font-style: normal;
-      letter-spacing: 0.025em;
-      color: #4F4A44;
+      font: inherit;
+      letter-spacing: 0;
+      color: inherit;
     }
 
     .pub-links {
@@ -559,11 +556,11 @@
       }
 
       .pub-authors {
-        font-size: 1rem;
+        font-size: 0.9375rem;
       }
 
       .pub-venue {
-        font-size: 0.9375rem;
+        font-size: 1rem;
       }
     }
 
